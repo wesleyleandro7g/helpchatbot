@@ -1,0 +1,183 @@
+---
+// MetaSection Component for Help Chat Bot
+---
+
+<section class="meta-section">
+  <div class="glow-effect" style="top: 30%; right: 10%; width: 400px; height: 400px; opacity: 0.08;"></div>
+  
+  <div class="container">
+    <div class="meta-card glass-card reveal-on-scroll">
+      <div class="meta-badge-container">
+        <!-- Meta icon (Infinity symbol representing Meta) -->
+        <svg class="meta-logo" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 600" width="140" fill="currentColor">
+          <path d="M968.2 108.6c-48 0-92 21.2-124 57.6-32-36.4-76-57.6-124-57.6-70.2 0-130.6 44.8-158.4 110.8-27.8-66-88.2-110.8-158.4-110.8-96.6 0-174.8 78.2-174.8 174.8v6.2c0 96.6 78.2 174.8 174.8 174.8 48 0 92-21.2 124-57.6 32 36.4 76 57.6 124 57.6 70.2 0 130.6-44.8 158.4-110.8 27.8 66 88.2 110.8 158.4 110.8 96.6 0 174.8-78.2 174.8-174.8v-6.2c0-96.6-78.2-174.8-174.8-174.8zm97 181c0 53.6-43.4 97-97 97-36.8 0-68.8-20.6-85.2-51.2l12.4-7.2c21.2 38.6 63.8 61.4 109.8 44.2 24.8-9.2 41.8-32.2 44.6-58.4 4.8-44.8-28.6-83-73.4-83h-6.2c-35 0-66.2 19.8-81 51.6l-13-6.4c17.8-38.6 56.6-63 99.8-63v-.2c53.6.2 97 43.6 99.2 96.2zm-500.4-3.6c-14.8-31.8-46-51.6-81-51.6h-6.2c-44.8 0-78.2 38.2-73.4 83 2.8 26.2 19.8 49.2 44.6 58.4 46 17.2 88.6-5.6 109.8-44.2l12.4 7.2c-16.4 30.6-48.4 51.2-85.2 51.2-53.6 0-97-43.4-97-97v-6.2c0-53.6 43.4-97 97-97 43.2 0 82 24.4 99.8 63l-13 6.4z"/>
+        </svg>
+        <span class="meta-label">Parceiro Oficial Meta</span>
+      </div>
+
+      <div class="meta-content">
+        <h2>Atendimento profissional com <span class="text-gradient">Estabilidade e Segurança</span></h2>
+        
+        <p class="meta-lead">
+          A Help Chat Bot utiliza a <strong>API Oficial da Meta</strong> (WhatsApp Cloud API). Isso significa que você constrói o seu negócio sobre a base mais sólida disponível, garantindo conformidade e performance premium.
+        </p>
+
+        <div class="meta-features-grid">
+          <div class="meta-feat-item">
+            <div class="meta-feat-icon">🛡️</div>
+            <div>
+              <h3>Risco de Banimento Quase Zero</h3>
+              <p>Esqueça os bloqueios de contas comuns em sistemas informais. Com a API Oficial, o número da sua clínica ou empresa fica protegido.</p>
+            </div>
+          </div>
+
+          <div class="meta-feat-item">
+            <div class="meta-feat-icon">⚡</div>
+            <div>
+              <h3>Estabilidade Total</h3>
+              <p>Suas automações e mensagens não caem quando o celular desliga ou perde a internet. Servidores Meta garantem envio imediato 24/7.</p>
+            </div>
+          </div>
+
+          <div class="meta-feat-item">
+            <div class="meta-feat-icon">👥</div>
+            <div>
+              <h3>Múltiplos Operadores</h3>
+              <p>Distribua a carga de atendimento. Vários operadores conversam ao mesmo tempo usando o mesmo número oficial de WhatsApp.</p>
+            </div>
+          </div>
+
+          <div class="meta-feat-item">
+            <div class="meta-feat-icon">✨</div>
+            <div>
+              <h3>Selo de Verificação</h3>
+              <p>Sua marca ganha credibilidade instantânea com o nome da empresa visível diretamente no contato, mesmo que o cliente não tenha seu número salvo.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .meta-section {
+    padding: 60px 0;
+    background: #030712;
+  }
+
+  .meta-card {
+    padding: 60px;
+    display: grid;
+    grid-template-columns: 0.3fr 0.7fr;
+    gap: 40px;
+    align-items: center;
+    border-radius: var(--radius-xl);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .meta-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, rgba(6, 55, 186, 0.05) 0%, rgba(2, 158, 248, 0.02) 100%);
+    z-index: 0;
+  }
+
+  .meta-badge-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 16px;
+    text-align: center;
+    z-index: 1;
+  }
+
+  .meta-logo {
+    color: var(--color-secondary);
+    filter: drop-shadow(0 0 15px rgba(2, 158, 248, 0.4));
+    transition: var(--transition-smooth);
+  }
+
+  .meta-logo:hover {
+    transform: scale(1.05);
+  }
+
+  .meta-label {
+    font-size: 0.85rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--color-text-muted);
+  }
+
+  .meta-content {
+    z-index: 1;
+  }
+
+  .meta-content h2 {
+    font-size: clamp(1.8rem, 3.5vw, 2.4rem);
+    margin-bottom: 16px;
+  }
+
+  .meta-lead {
+    font-size: 1.05rem;
+    line-height: 1.6;
+    margin-bottom: 40px;
+    max-width: 680px;
+  }
+
+  .meta-features-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 32px;
+  }
+
+  .meta-feat-item {
+    display: flex;
+    gap: 16px;
+    align-items: flex-start;
+  }
+
+  .meta-feat-icon {
+    font-size: 1.5rem;
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    width: 46px;
+    height: 46px;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+  }
+
+  .meta-feat-item h3 {
+    font-size: 1.1rem;
+    margin-bottom: 8px;
+    font-weight: 600;
+  }
+
+  .meta-feat-item p {
+    font-size: 0.9rem;
+    line-height: 1.5;
+  }
+
+  @media (max-width: 991px) {
+    .meta-card {
+      grid-template-columns: 1fr;
+      padding: 40px 24px;
+      gap: 30px;
+    }
+
+    .meta-features-grid {
+      grid-template-columns: 1fr;
+      gap: 24px;
+    }
+  }
+</style>

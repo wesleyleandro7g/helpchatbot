@@ -1,0 +1,76 @@
+---
+import '../styles/global.css';
+
+interface Props {
+  title?: string;
+  description?: string;
+}
+
+const { 
+  title = "Help Chat Bot | Automação Inteligente para Atendimento", 
+  description = "Organize e profissionalize o atendimento da sua clínica ou empresa com chatbot inteligente para WhatsApp e Instagram integrado à API Oficial da Meta." 
+} = Astro.props;
+---
+
+<!doctype html>
+<html lang="pt-BR">
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		
+		<!-- SEO Meta Tags -->
+		<title>{title}</title>
+		<meta name="description" content={description} />
+		<meta name="robots" content="index, follow" />
+		<meta name="author" content="Help Chat Bot" />
+		
+		<!-- Open Graph / Facebook / WhatsApp -->
+		<meta property="og:type" content="website" />
+		<meta property="og:title" content={title} />
+		<meta property="og:description" content={description} />
+		<meta property="og:image" content="/logo.jpeg" />
+		<meta property="og:url" content="https://helpchatbot.com.br" />
+		
+		<!-- Twitter -->
+		<meta name="twitter:card" content="summary_large_image" />
+		<meta name="twitter:title" content={title} />
+		<meta name="twitter:description" content={description} />
+		<meta name="twitter:image" content="/logo.jpeg" />
+
+		<link rel="icon" type="image/png" href="/logo.png" />
+		<meta name="generator" content={Astro.generator} />
+
+		<!-- Fonts -->
+		<link rel="preconnect" href="https://fonts.googleapis.com">
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+		<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+	</head>
+	<body>
+		<slot />
+
+		<!-- Fallback Scroll Reveal Script -->
+		<script>
+			// Intersection Observer to add .revealed class to elements as they scroll into view
+			const observerOptions = {
+				root: null,
+				rootMargin: '0px',
+				threshold: 0.15
+			};
+
+			const observer = new IntersectionObserver((entries) => {
+				entries.forEach(entry => {
+					if (entry.isIntersecting) {
+						entry.target.classList.add('revealed');
+						// Once revealed, no need to track it anymore
+						observer.unobserve(entry.target);
+					}
+				});
+			}, observerOptions);
+
+			// Track all reveal-on-scroll elements
+			document.querySelectorAll('.reveal-on-scroll').forEach(el => {
+				observer.observe(el);
+			});
+		</script>
+	</body>
+</html>

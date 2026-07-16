@@ -1,0 +1,180 @@
+---
+// Footer Component for Help Chat Bot
+---
+
+<footer class="main-footer">
+  <div class="container footer-grid">
+    <!-- Brand column -->
+    <div class="footer-brand">
+      <img src="/logo-white.png" alt="Help Chat Bot Logo" class="footer-logo" />
+      <p class="footer-bio">
+        Somos especialistas em automação inteligente e queremos te ajudar a melhorar seu atendimento. 🚀 WhatsApp, Instagram e mais em um só lugar.
+      </p>
+      <div class="meta-partner-footer">
+        <span class="meta-icon">♾️</span>
+        <span>Parceiro Oficial Meta</span>
+      </div>
+    </div>
+
+    <!-- Links column -->
+    <div class="footer-links">
+      <h4>Navegação</h4>
+      <a href="#" class="foot-link">Início</a>
+      <a href="#beneficios" class="foot-link">Benefícios</a>
+      <a href="#permissoes" class="foot-link">Permissões</a>
+      <a href="#clinicas" class="foot-link">Clínicas & Laboratórios</a>
+    </div>
+
+    <!-- Contact column -->
+    <div class="footer-contact">
+      <h4>Fale Conosco</h4>
+      <ul class="contact-list">
+        <li>
+          <span class="icon">💬</span>
+          <a href="https://wa.me/5538998591036" target="_blank" class="contact-link">(38) 9 9859-1036</a>
+        </li>
+        <li>
+          <span class="icon">✉️</span>
+          <a href="mailto:contato@helpchatbot.com.br" class="contact-link">contato@helpchatbot.com.br</a>
+        </li>
+        <li>
+          <span class="icon">📍</span>
+          <span>Montes Claros - MG</span>
+        </li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="footer-bottom">
+    <div class="container footer-bottom-flex">
+      <p>&copy; {new Date().getFullYear()} Help Chat Bot. Todos os direitos reservados.</p>
+      <div class="footer-credits">
+        <span>Desenvolvido com Astro 🚀</span>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<style>
+  .main-footer {
+    background: #070B19;
+    border-top: 1px solid var(--color-border);
+    padding-top: 80px;
+    color: var(--color-text-muted);
+  }
+
+  .footer-grid {
+    display: grid;
+    grid-template-columns: 1.5fr 1fr 1fr;
+    gap: 60px;
+    padding-bottom: 60px;
+  }
+
+  .footer-brand {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .footer-logo {
+    height: 48px;
+    width: auto;
+    align-self: flex-start;
+    object-fit: contain;
+  }
+
+  .footer-bio {
+    font-size: 0.95rem;
+    line-height: 1.6;
+  }
+
+  .meta-partner-footer {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: rgba(2, 158, 248, 0.05);
+    border: 1px solid rgba(2, 158, 248, 0.15);
+    padding: 6px 14px;
+    border-radius: 100px;
+    font-size: 0.82rem;
+    font-weight: 600;
+    color: var(--color-secondary);
+    align-self: flex-start;
+  }
+
+  .footer-links {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .footer-links h4, .footer-contact h4 {
+    color: #FFFFFF;
+    font-size: 1.1rem;
+    font-weight: 600;
+    margin-bottom: 8px;
+  }
+
+  .foot-link {
+    font-size: 0.95rem;
+    transition: var(--transition-smooth);
+  }
+
+  .foot-link:hover {
+    color: #FFFFFF;
+    transform: translateX(4px);
+  }
+
+  .contact-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  .contact-list li {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 0.95rem;
+  }
+
+  .contact-list .icon {
+    font-size: 1.1rem;
+    opacity: 0.8;
+  }
+
+  .contact-link {
+    transition: var(--transition-smooth);
+  }
+
+  .contact-link:hover {
+    color: #FFFFFF;
+  }
+
+  .footer-bottom {
+    border-top: 1px solid var(--color-border);
+    padding: 30px 0;
+    font-size: 0.85rem;
+  }
+
+  .footer-bottom-flex {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 16px;
+  }
+
+  @media (max-width: 991px) {
+    .footer-grid {
+      grid-template-columns: 1fr;
+      gap: 40px;
+    }
+    
+    .footer-bottom-flex {
+      flex-direction: column;
+      text-align: center;
+    }
+  }
+</style>

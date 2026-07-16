@@ -1,0 +1,248 @@
+---
+// NicheFocus Component for Help Chat Bot
+---
+
+<section id="clinicas" class="niche-section">
+  <div class="glow-effect" style="bottom: 5%; right: 10%; width: 450px; height: 450px; opacity: 0.12;"></div>
+  
+  <div class="container">
+    <div class="section-header reveal-on-scroll">
+      <span class="section-tagline text-gradient-primary">Foco em Resultados</span>
+      <h2>Acelere a eficiência da sua <span class="text-gradient">Clínica ou Laboratório</span></h2>
+      <p class="section-desc">
+        A Help Chat Bot é especialista em automatizar o agendamento e a confirmação de consultas, solucionando o maior gargalo operacional de saúde.
+      </p>
+    </div>
+
+    <!-- Niche Comparison Section -->
+    <div class="niche-comparison-grid">
+      <!-- Sem Help Chat Bot Card -->
+      <div class="comparison-card border-red reveal-on-scroll">
+        <div class="card-badge badge-red">O Cenário Comum</div>
+        <h3>Sem o Help Chat Bot</h3>
+        <p class="comparison-lead">O processo de confirmação manual e lento que consome a sua equipe:</p>
+        
+        <ul class="comparison-list list-red">
+          <li>
+            <span class="list-bullet-icon">❌</span>
+            <span>Secretárias gastam mais de 4 horas por dia fazendo ligações ou enviando mensagens manuais.</span>
+          </li>
+          <li>
+            <span class="list-bullet-icon">❌</span>
+            <span>Alta taxa de faltas (no-show) por pacientes que esquecem do agendamento.</span>
+          </li>
+          <li>
+            <span class="list-bullet-icon">❌</span>
+            <span>Horários vagos na agenda que poderiam ser preenchidos por outros pacientes.</span>
+          </li>
+          <li>
+            <span class="list-bullet-icon">❌</span>
+            <span>Risco de banimento usando ferramentas não oficiais para envios em lote.</span>
+          </li>
+        </ul>
+      </div>
+
+      <!-- Com Help Chat Bot Card (Glow/Featured) -->
+      <div class="comparison-card border-green glass-card reveal-on-scroll" style="transition-delay: 0.2s;">
+        <div class="card-badge badge-green">Cenário com Help Chat Bot</div>
+        <h3>Com o Help Chat Bot</h3>
+        <p class="comparison-lead text-gradient">A automação integrada de ponta a ponta que otimiza sua receita:</p>
+        
+        <ul class="comparison-list list-green">
+          <li>
+            <span class="list-bullet-icon">✅</span>
+            <span>Lembretes e confirmações enviados 100% no piloto automático pelo WhatsApp Oficial.</span>
+          </li>
+          <li>
+            <span class="list-bullet-icon">✅</span>
+            <span>Redução de até 85% das faltas e reagendamentos imediatos em caso de cancelamento.</span>
+          </li>
+          <li>
+            <span class="list-bullet-icon">✅</span>
+            <span>Sua equipe livre para focar em um acolhimento de excelência no presencial.</span>
+          </li>
+          <li>
+            <span class="list-bullet-icon">✅</span>
+            <span>Total tranquilidade jurídica e técnica utilizando a API Oficial da Meta.</span>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Quick Stats Section -->
+    <div class="niche-stats reveal-on-scroll">
+      <div class="stat-item">
+        <span class="stat-number text-gradient-primary">85%</span>
+        <span class="stat-label">Menos Faltas em Consultas</span>
+      </div>
+      <div class="stat-item">
+        <span class="stat-number text-gradient-whatsapp">4h+</span>
+        <span class="stat-label">Poupadas Diariamente por Atendente</span>
+      </div>
+      <div class="stat-item">
+        <span class="stat-number text-gradient">24/7</span>
+        <span class="stat-label">Agendamento & Retorno Ativo</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .niche-section {
+    background: #0B1120;
+    border-bottom: 1px solid var(--color-border);
+  }
+
+  .niche-comparison-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+    margin-bottom: 80px;
+  }
+
+  .comparison-card {
+    padding: 40px;
+    border-radius: var(--radius-xl);
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+  }
+
+  .border-red {
+    background: rgba(254, 45, 45, 0.01);
+    border: 1px solid rgba(254, 45, 45, 0.15);
+  }
+
+  .border-green {
+    background: rgba(3, 173, 61, 0.02);
+    border: 1px solid rgba(3, 173, 61, 0.25);
+    box-shadow: 0 25px 50px -12px rgba(3, 173, 61, 0.1);
+  }
+
+  .card-badge {
+    position: absolute;
+    top: 24px;
+    right: 24px;
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    padding: 6px 12px;
+    border-radius: 100px;
+  }
+
+  .badge-red {
+    background: rgba(254, 45, 45, 0.1);
+    color: #F87171;
+    border: 1px solid rgba(254, 45, 45, 0.2);
+  }
+
+  .badge-green {
+    background: rgba(3, 173, 61, 0.15);
+    color: #00FF7F;
+    border: 1px solid rgba(3, 173, 61, 0.3);
+  }
+
+  .comparison-card h3 {
+    font-size: 1.5rem;
+    margin-bottom: 16px;
+    margin-top: 10px;
+  }
+
+  .comparison-lead {
+    font-size: 0.95rem;
+    font-weight: 600;
+    margin-bottom: 30px;
+  }
+
+  .comparison-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .comparison-list li {
+    display: flex;
+    gap: 16px;
+    align-items: flex-start;
+  }
+
+  .list-bullet-icon {
+    font-size: 1.1rem;
+    flex-shrink: 0;
+  }
+
+  .comparison-list li span:last-child {
+    font-size: 0.95rem;
+    line-height: 1.5;
+  }
+
+  .list-red li span:last-child {
+    color: var(--color-text-muted);
+  }
+
+  .list-green li span:last-child {
+    color: #FFFFFF;
+  }
+
+  /* Niche Stats Section */
+  .niche-stats {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+    background: rgba(255, 255, 255, 0.02);
+    border: 1px solid var(--color-border);
+    padding: 40px;
+    border-radius: var(--radius-xl);
+    text-align: center;
+  }
+
+  .stat-item {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    border-right: 1px solid var(--color-border);
+  }
+
+  .stat-item:last-child {
+    border-right: none;
+  }
+
+  .stat-number {
+    font-family: 'Outfit', sans-serif;
+    font-size: 3.5rem;
+    font-weight: 800;
+    line-height: 1;
+  }
+
+  .stat-label {
+    font-size: 0.95rem;
+    color: var(--color-text-muted);
+    font-weight: 600;
+  }
+
+  @media (max-width: 991px) {
+    .niche-comparison-grid {
+      grid-template-columns: 1fr;
+      gap: 30px;
+    }
+
+    .niche-stats {
+      grid-template-columns: 1fr;
+      padding: 24px;
+      gap: 24px;
+    }
+
+    .stat-item {
+      border-right: none;
+      border-bottom: 1px solid var(--color-border);
+      padding-bottom: 20px;
+    }
+
+    .stat-item:last-child {
+      border-bottom: none;
+      padding-bottom: 0;
+    }
+  }
+</style>

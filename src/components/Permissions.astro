@@ -1,0 +1,449 @@
+---
+// Permissions Component for Help Chat Bot
+---
+
+<section id="permissoes" class="permissions-section">
+  <div class="glow-effect" style="top: 20%; right: 5%; width: 400px; height: 400px; opacity: 0.08;"></div>
+  
+  <div class="container permissions-container">
+    <div class="permissions-content reveal-on-scroll">
+      <span class="section-tagline text-gradient-primary">Gestão de Equipe</span>
+      <h2>Controle total de acessos e <span class="text-gradient">permissões</span> para seu time</h2>
+      <p class="permissions-desc">
+        Mantenha a segurança e a organização da sua empresa. Defina com precisão o que cada atendente, supervisor ou gerente pode visualizar e configurar dentro da plataforma.
+      </p>
+
+      <ul class="permissions-list">
+        <li>
+          <div class="list-icon">🔒</div>
+          <div>
+            <strong>Acesso a Relatórios</strong>
+            <p>Permita ou bloqueie a visualização de relatórios financeiros e de produtividade.</p>
+          </div>
+        </li>
+        <li>
+          <div class="list-icon">👁️</div>
+          <div>
+            <strong>Visualização de Atendimentos</strong>
+            <p>Defina se o atendente vê apenas suas próprias conversas ou o histórico completo da empresa.</p>
+          </div>
+        </li>
+        <li>
+          <div class="list-icon">🔌</div>
+          <div>
+            <strong>Conexão de Canais</strong>
+            <p>Controle rigidamente quem pode conectar ou remover novos números e contas sociais.</p>
+          </div>
+        </li>
+        <li>
+          <div class="list-icon">🤖</div>
+          <div>
+            <strong>Gestão de Automações</strong>
+            <p>Restrinja a criação ou alteração dos fluxos de chatbots e mensagens automáticas.</p>
+          </div>
+        </li>
+      </ul>
+
+      <div class="permissions-badge">
+        <span class="badge-icon">⚙️</span>
+        <span>"Tudo configurado do seu jeito!"</span>
+      </div>
+    </div>
+
+    <!-- Permissions Visual Simulator -->
+    <div class="permissions-visual reveal-on-scroll" style="transition-delay: 0.2s;">
+      <div class="dashboard-panel glass-card">
+        <div class="panel-header">
+          <div class="panel-dots">
+            <span></span><span></span><span></span>
+          </div>
+          <div class="panel-title">Painel de Controle - Permissões</div>
+        </div>
+        
+        <div class="panel-body">
+          <!-- Role selector simulation -->
+          <div class="role-selector">
+            <div class="role-tab active" id="tabOperator">Atendente</div>
+            <div class="role-tab" id="tabSupervisor">Supervisor</div>
+            <div class="role-tab" id="tabAdmin">Gerente</div>
+          </div>
+
+          <!-- Perm items list containing checkbox toggles -->
+          <div class="perm-settings-container">
+            <div class="perm-row">
+              <div class="perm-info">
+                <span class="perm-title">Acesso a Relatórios</span>
+                <span class="perm-desc">Visualizar métricas e exportar dados de desempenho</span>
+              </div>
+              <label class="switch">
+                <input type="checkbox" id="checkReports" disabled />
+                <span class="slider"></span>
+              </label>
+            </div>
+
+            <div class="perm-row">
+              <div class="perm-info">
+                <span class="perm-title">Ver todos os atendimentos</span>
+                <span class="perm-desc">Visualizar histórico de conversas de outros operadores</span>
+              </div>
+              <label class="switch">
+                <input type="checkbox" id="checkAllChats" disabled />
+                <span class="slider"></span>
+              </label>
+            </div>
+
+            <div class="perm-row">
+              <div class="perm-info">
+                <span class="perm-title">Conectar novos canais</span>
+                <span class="perm-desc">Adicionar novos números de WhatsApp e contas do Instagram</span>
+              </div>
+              <label class="switch">
+                <input type="checkbox" id="checkChannels" disabled />
+                <span class="slider"></span>
+              </label>
+            </div>
+
+            <div class="perm-row">
+              <div class="perm-info">
+                <span class="perm-title">Acesso a automações</span>
+                <span class="perm-desc">Editar fluxos de chatbot e respostas automáticas</span>
+              </div>
+              <label class="switch">
+                <input type="checkbox" id="checkAutomations" disabled />
+                <span class="slider"></span>
+              </label>
+            </div>
+          </div>
+
+          <div class="panel-footer-tip">
+            <span>🔒 Nível de segurança: </span>
+            <strong id="securityLevel">Básico (Apenas chats atribuídos)</strong>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .permissions-section {
+    background: #030712;
+    border-bottom: 1px solid var(--color-border);
+  }
+
+  .permissions-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 60px;
+    align-items: center;
+  }
+
+  .permissions-content {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .permissions-desc {
+    font-size: 1.1rem;
+    margin-bottom: 32px;
+  }
+
+  .permissions-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    margin-bottom: 32px;
+  }
+
+  .permissions-list li {
+    display: flex;
+    gap: 16px;
+    align-items: flex-start;
+  }
+
+  .list-icon {
+    font-size: 1.3rem;
+    width: 36px;
+    height: 36px;
+    background: rgba(2, 158, 248, 0.1);
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+  }
+
+  .permissions-list li strong {
+    color: #FFFFFF;
+    font-size: 1.05rem;
+    display: block;
+    margin-bottom: 4px;
+  }
+
+  .permissions-list li p {
+    font-size: 0.92rem;
+  }
+
+  .permissions-badge {
+    align-self: flex-start;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: rgba(108, 93, 211, 0.1);
+    border: 1px solid rgba(108, 93, 211, 0.2);
+    padding: 8px 16px;
+    border-radius: 12px;
+    font-weight: 600;
+    color: #FFFFFF;
+  }
+
+  .badge-icon {
+    animation: rotate 6s linear infinite;
+  }
+
+  @keyframes rotate {
+    to { transform: rotate(360deg); }
+  }
+
+  /* Interactive Dashboard Preview */
+  .dashboard-panel {
+    border-radius: var(--radius-xl);
+    overflow: hidden;
+    box-shadow: 0 30px 60px -15px rgba(0, 0, 0, 0.7);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+  }
+
+  .panel-header {
+    background: rgba(255, 255, 255, 0.02);
+    padding: 16px 24px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    display: flex;
+    align-items: center;
+    gap: 16px;
+  }
+
+  .panel-dots {
+    display: flex;
+    gap: 6px;
+  }
+
+  .panel-dots span {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+  }
+
+  .panel-dots span:nth-child(1) { background-color: #EF4444; }
+  .panel-dots span:nth-child(2) { background-color: #F59E0B; }
+  .panel-dots span:nth-child(3) { background-color: #10B981; }
+
+  .panel-title {
+    font-size: 0.85rem;
+    color: var(--color-text-muted);
+    font-family: monospace;
+  }
+
+  .panel-body {
+    padding: 24px;
+  }
+
+  .role-selector {
+    display: flex;
+    background: rgba(0, 0, 0, 0.2);
+    padding: 4px;
+    border-radius: 10px;
+    margin-bottom: 24px;
+    border: 1px solid rgba(255, 255, 255, 0.03);
+  }
+
+  .role-tab {
+    flex: 1;
+    text-align: center;
+    padding: 8px;
+    border-radius: 8px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    cursor: pointer;
+    color: var(--color-text-muted);
+    transition: var(--transition-smooth);
+  }
+
+  .role-tab.active {
+    background: var(--color-primary);
+    color: #FFFFFF;
+    box-shadow: 0 4px 12px rgba(6, 55, 186, 0.25);
+  }
+
+  .perm-settings-container {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  .perm-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-bottom: 16px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.03);
+  }
+
+  .perm-row:last-child {
+    border-bottom: none;
+    padding-bottom: 0;
+  }
+
+  .perm-info {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    max-width: 80%;
+  }
+
+  .perm-title {
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: #FFFFFF;
+  }
+
+  .perm-desc {
+    font-size: 0.78rem;
+    color: var(--color-text-muted);
+  }
+
+  /* Custom switch */
+  .switch {
+    position: relative;
+    display: inline-block;
+    width: 44px;
+    height: 24px;
+  }
+
+  .switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+  }
+
+  .slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #334155;
+    transition: .4s;
+    border-radius: 24px;
+  }
+
+  .slider:before {
+    position: absolute;
+    content: "";
+    height: 18px;
+    width: 18px;
+    left: 3px;
+    bottom: 3px;
+    background-color: white;
+    transition: .4s;
+    border-radius: 50%;
+  }
+
+  input:checked + .slider {
+    background-color: var(--color-secondary);
+  }
+
+  input:checked + .slider:before {
+    transform: translateX(20px);
+  }
+
+  .panel-footer-tip {
+    margin-top: 24px;
+    background: rgba(255, 255, 255, 0.02);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    padding: 12px;
+    border-radius: 8px;
+    font-size: 0.8rem;
+    text-align: center;
+  }
+
+  .panel-footer-tip strong {
+    color: var(--color-secondary);
+  }
+
+  @media (max-width: 991px) {
+    .permissions-container {
+      grid-template-columns: 1fr;
+      gap: 50px;
+    }
+  }
+</style>
+
+<script>
+  // Dashboard simulation JS logic
+  const tabOperator = document.getElementById('tabOperator');
+  const tabSupervisor = document.getElementById('tabSupervisor');
+  const tabAdmin = document.getElementById('tabAdmin');
+
+  const checkReports = document.getElementById('checkReports') as HTMLInputElement;
+  const checkAllChats = document.getElementById('checkAllChats') as HTMLInputElement;
+  const checkChannels = document.getElementById('checkChannels') as HTMLInputElement;
+  const checkAutomations = document.getElementById('checkAutomations') as HTMLInputElement;
+  const securityLevel = document.getElementById('securityLevel');
+
+  const roles = {
+    operator: {
+      reports: false,
+      allChats: false,
+      channels: false,
+      automations: false,
+      level: 'Básico (Visualiza apenas suas próprias conversas)'
+    },
+    supervisor: {
+      reports: true,
+      allChats: true,
+      channels: false,
+      automations: false,
+      level: 'Médio (Vê tudo e acessa relatórios)'
+    },
+    admin: {
+      reports: true,
+      allChats: true,
+      channels: true,
+      automations: true,
+      level: 'Administrador (Acesso total liberado)'
+    }
+  };
+
+  function updatePanel(role: 'operator' | 'supervisor' | 'admin') {
+    const data = roles[role];
+    if (checkReports) checkReports.checked = data.reports;
+    if (checkAllChats) checkAllChats.checked = data.allChats;
+    if (checkChannels) checkChannels.checked = data.channels;
+    if (checkAutomations) checkAutomations.checked = data.automations;
+    if (securityLevel) securityLevel.textContent = data.level;
+  }
+
+  // Click listeners for roles
+  tabOperator?.addEventListener('click', () => {
+    document.querySelectorAll('.role-tab').forEach(t => t.classList.remove('active'));
+    tabOperator.classList.add('active');
+    updatePanel('operator');
+  });
+
+  tabSupervisor?.addEventListener('click', () => {
+    document.querySelectorAll('.role-tab').forEach(t => t.classList.remove('active'));
+    tabSupervisor.classList.add('active');
+    updatePanel('supervisor');
+  });
+
+  tabAdmin?.addEventListener('click', () => {
+    document.querySelectorAll('.role-tab').forEach(t => t.classList.remove('active'));
+    tabAdmin.classList.add('active');
+    updatePanel('admin');
+  });
+
+  // Initial set to operator
+  updatePanel('operator');
+</script>

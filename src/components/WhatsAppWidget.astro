@@ -1,0 +1,116 @@
+---
+// WhatsApp Floating Widget for Help Chat Bot
+---
+
+<a href="https://wa.me/5538998591036?text=Olá!%20Gostaria%20de%20saber%20mais%20sobre%20as%20soluções%20do%20Help%20Chat%20Bot." target="_blank" class="whatsapp-widget" aria-label="Fale conosco no WhatsApp">
+  <div class="widget-tooltip">Chame no WhatsApp!</div>
+  <div class="widget-pulse"></div>
+  <div class="widget-icon-box">
+    <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-whatsapp" viewBox="0 0 16 16">
+      <path d="M13.601 2.326A7.85 7.85 0 0 0 7.994 0C3.627 0 .068 3.558.064 7.926c0 1.399.366 2.76 1.057 3.965L0 16l4.204-1.102a7.9 7.9 0 0 0 3.79.948h.008c4.368 0 7.927-3.559 7.931-7.928a7.9 7.9 0 0 0-2.332-5.593l-.004-.005zM7.994 14.52a6.57 6.57 0 0 1-3.356-.92l-.24-.144-2.494.654.666-2.433-.156-.251a6.56 6.56 0 0 1-1.007-3.505c0-3.626 2.957-6.584 6.591-6.584a6.56 6.56 0 0 1 4.66 1.931 6.56 6.56 0 0 1 1.928 4.66c-.004 3.639-2.961 6.592-6.592 6.592m3.69-4.29c-.2-.1-1.171-.578-1.349-.643-.178-.065-.307-.1-.439.1-.132.197-.508.643-.623.774-.115.13-.23.148-.43.048a5.9 5.9 0 0 1-1.602-1.012 6.2 6.2 0 0 1-1.109-1.397c-.12-.207-.013-.32.088-.42.09-.09.2-.234.3-.35.1-.117.133-.197.2-.33.067-.132.034-.249-.017-.35-.051-.1-.439-1.058-.6-.145-.158-.387-.343-.377-.49-.377-.113.001-.214.07-.306.182-.132.16-.395.428-.395.948 0 1.02.744 2.01 1.093 2.471.348.462 1.93 2.95 4.67 4.137.653.28 1.162.447 1.558.573.656.208 1.252.179 1.725.108.527-.078 1.17-.478 1.334-.94.164-.462.164-.858.115-.94-.049-.082-.18-.13-.38-.23"/>
+    </svg>
+  </div>
+</a>
+
+<style>
+  .whatsapp-widget {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    z-index: 999;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 60px;
+    height: 60px;
+    background: #03AD3D;
+    color: #FFFFFF;
+    border-radius: 50%;
+    box-shadow: 0 10px 25px rgba(3, 173, 61, 0.5);
+    cursor: pointer;
+    transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  .whatsapp-widget:hover {
+    transform: scale(1.1) translateY(-3px);
+    box-shadow: 0 15px 30px rgba(3, 173, 61, 0.7);
+  }
+
+  .widget-icon-box {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 2;
+  }
+
+  .widget-pulse {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    background: #03AD3D;
+    opacity: 0.6;
+    animation: widgetPulse 2s infinite;
+    z-index: 1;
+  }
+
+  .widget-tooltip {
+    position: absolute;
+    right: 76px;
+    background: #0F172A;
+    color: #FFFFFF;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    padding: 8px 16px;
+    border-radius: 10px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    white-space: nowrap;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateX(10px);
+    transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+  }
+
+  .widget-tooltip::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    right: -6px;
+    transform: translateY(-50%) rotate(45deg);
+    width: 10px;
+    height: 10px;
+    background: #0F172A;
+    border-top: 1px solid rgba(255, 255, 255, 0.08);
+    border-right: 1px solid rgba(255, 255, 255, 0.08);
+  }
+
+  .whatsapp-widget:hover .widget-tooltip {
+    opacity: 1;
+    visibility: visible;
+    transform: translateX(0);
+  }
+
+  @keyframes widgetPulse {
+    0% { transform: scale(1); opacity: 0.6; }
+    100% { transform: scale(1.5); opacity: 0; }
+  }
+
+  @media (max-width: 768px) {
+    .whatsapp-widget {
+      bottom: 20px;
+      right: 20px;
+      width: 50px;
+      height: 50px;
+    }
+    
+    .whatsapp-widget svg {
+      width: 24px;
+      height: 24px;
+    }
+
+    .widget-tooltip {
+      display: none; /* Hide tooltip on mobile to prevent clutter */
+    }
+  }
+</style>
