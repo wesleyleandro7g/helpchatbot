@@ -1,8 +1,10 @@
 ---
 // Permissions Component for Help Chat Bot
+import TechGrid from './TechGrid.astro';
 ---
 
 <section id="permissoes" class="permissions-section">
+  <TechGrid type="cross" opacity={0.06} color="var(--color-primary)" animate={true} />
   <div class="glow-effect" style="top: 20%; right: 5%; width: 400px; height: 400px; opacity: 0.08;"></div>
   
   <div class="container permissions-container">
@@ -52,7 +54,8 @@
 
     <!-- Permissions Visual Simulator -->
     <div class="permissions-visual reveal-on-scroll" style="transition-delay: 0.2s;">
-      <div class="dashboard-panel glass-card">
+      <div class="dashboard-panel glass-card tech-corners">
+        <TechGrid type="dots" opacity={0.06} color="var(--color-secondary)" />
         <div class="panel-header">
           <div class="panel-dots">
             <span></span><span></span><span></span>
@@ -144,6 +147,12 @@
     flex-direction: column;
   }
 
+  .permissions-content h2 {
+    font-size: clamp(2.2rem, 4.5vw, 3.2rem);
+    margin-bottom: 28px;
+    line-height: 1.2;
+  }
+
   .permissions-desc {
     font-size: 1.1rem;
     margin-bottom: 32px;
@@ -211,6 +220,7 @@
 
   /* Interactive Dashboard Preview */
   .dashboard-panel {
+    position: relative;
     border-radius: var(--radius-xl);
     overflow: hidden;
     box-shadow: 0 30px 60px -15px var(--color-shadow);

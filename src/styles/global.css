@@ -187,8 +187,9 @@ a {
 }
 
 /* Theme-specific Glow adjustment for Light Theme */
-html[data-theme="light"] .glow-effect {
-  background: radial-gradient(circle, rgba(2, 158, 248, 0.1) 0%, rgba(6, 55, 186, 0.02) 60%, rgba(0,0,0,0) 100%);
+html[data-theme="light"] .glow-effect,
+html[data-theme="light"] .tech-radar-glow {
+  display: none !important;
 }
 
 /* Custom button styles */
@@ -262,6 +263,8 @@ html[data-theme="light"] .btn-secondary:hover {
 
 /* Glass panel design */
 .glass-card {
+  position: relative;
+  overflow: hidden;
   background: var(--color-glass-bg);
   backdrop-filter: blur(16px);
   -webkit-backdrop-filter: blur(16px);
@@ -290,3 +293,49 @@ section {
   opacity: 1;
   transform: translateY(0);
 }
+
+/* High-tech HUD corner brackets utility */
+.tech-corners {
+  position: relative;
+}
+
+.tech-corners::before, .tech-corners::after {
+  content: '';
+  position: absolute;
+  width: 14px;
+  height: 14px;
+  border: 2px solid var(--color-secondary);
+  pointer-events: none;
+  z-index: 2;
+  transition: border-color 0.3s ease;
+}
+
+.tech-corners::before {
+  top: 14px;
+  left: 14px;
+  border-right: none;
+  border-bottom: none;
+}
+
+.tech-corners::after {
+  bottom: 14px;
+  right: 14px;
+  border-left: none;
+  border-top: none;
+}
+
+/* Glowing text and borders */
+.text-glow {
+  text-shadow: 0 0 10px rgba(2, 158, 248, 0.35);
+}
+
+.border-neon-secondary {
+  border-color: rgba(2, 158, 248, 0.3) !important;
+  box-shadow: 0 0 15px rgba(2, 158, 248, 0.08) !important;
+}
+
+.border-neon-primary {
+  border-color: rgba(6, 55, 186, 0.3) !important;
+  box-shadow: 0 0 15px rgba(6, 55, 186, 0.08) !important;
+}
+

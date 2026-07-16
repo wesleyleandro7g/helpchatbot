@@ -1,0 +1,266 @@
+---
+interface Props {
+  type?: 'grid' | 'dots' | 'cross' | 'waves' | 'circuit' | 'beams';
+  opacity?: number;
+  color?: string;
+  animate?: boolean;
+  position?: 'absolute' | 'fixed';
+}
+
+const { 
+  type = 'grid', 
+  opacity = 0.4, 
+  color = 'var(--color-primary)', 
+  animate = false,
+  position = 'absolute'
+} = Astro.props;
+---
+
+<div class={`tech-pattern-container ${type} ${animate ? 'animate' : ''}`} style={`--pattern-color: ${color}; --pattern-opacity: ${opacity}; position: ${position};`}>
+  {type === 'grid' && (
+    <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <pattern id="tech-grid" width="40" height="40" patternUnits="userSpaceOnUse">
+          <path d="M 40 0 L 0 0 0 40" fill="none" stroke="currentColor" stroke-width="0.75" />
+        </pattern>
+      </defs>
+      <rect width="100%" height="100%" fill="url(#tech-grid)" />
+    </svg>
+  )}
+
+  {type === 'dots' && (
+    <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <pattern id="tech-dots" width="24" height="24" patternUnits="userSpaceOnUse">
+          <circle cx="2" cy="2" r="1.2" fill="currentColor" />
+        </pattern>
+      </defs>
+      <rect width="100%" height="100%" fill="url(#tech-dots)" />
+    </svg>
+  )}
+
+  {type === 'cross' && (
+    <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <pattern id="tech-cross" width="60" height="60" patternUnits="userSpaceOnUse">
+          <path d="M 60 0 L 0 0 0 60" fill="none" stroke="currentColor" stroke-width="0.5" />
+          <path d="M 27 30 L 33 30 M 30 27 L 30 33" stroke="var(--color-secondary)" stroke-width="1.2" />
+        </pattern>
+      </defs>
+      <rect width="100%" height="100%" fill="url(#tech-cross)" />
+    </svg>
+  )}
+
+  {type === 'circuit' && (
+    <svg width="100%" height="100%" viewBox="0 0 100 100" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+      <!-- Circuit paths -->
+      <path d="M 0,20 L 30,20 L 40,30 L 70,30 L 80,40 L 100,40" fill="none" stroke="currentColor" stroke-width="0.2" />
+      <path d="M 20,0 L 20,40 L 35,55 L 35,80 L 45,90 L 100,90" fill="none" stroke="currentColor" stroke-width="0.2" />
+      <path d="M 0,75 L 15,75 L 25,65 L 50,65 L 60,75 L 100,75" fill="none" stroke="currentColor" stroke-width="0.2" />
+      
+      <!-- Nodes / Junctions -->
+      <circle cx="30" cy="20" r="0.6" fill="var(--color-secondary)" />
+      <circle cx="40" cy="30" r="0.6" fill="var(--color-secondary)" />
+      <circle cx="70" cy="30" r="0.6" fill="currentColor" />
+      <circle cx="80" cy="40" r="0.6" fill="var(--color-secondary)" />
+      
+      <circle cx="20" cy="40" r="0.6" fill="currentColor" />
+      <circle cx="35" cy="55" r="0.6" fill="var(--color-secondary)" />
+      <circle cx="35" cy="80" r="0.6" fill="currentColor" />
+      <circle cx="45" cy="90" r="0.6" fill="var(--color-secondary)" />
+      
+      <circle cx="15" cy="75" r="0.6" fill="currentColor" />
+      <circle cx="25" cy="65" r="0.6" fill="var(--color-secondary)" />
+      <circle cx="50" cy="65" r="0.6" fill="currentColor" />
+      <circle cx="60" cy="75" r="0.6" fill="var(--color-secondary)" />
+    </svg>
+  )}
+
+  {type === 'waves' && (
+    <svg width="100%" height="100%" viewBox="0 0 1440 400" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+      <path class="wave-path wave-1" d="M0,192 C288,224 576,160 864,192 C1152,224 1344,288 1440,256 L1440,400 L0,400 Z" fill="url(#wave-grad-1)"></path>
+      <path class="wave-path wave-2" d="M0,128 C288,96 576,192 864,160 C1152,128 1344,64 1440,96 L1440,400 L0,400 Z" fill="url(#wave-grad-2)"></path>
+      <path class="wave-path wave-3" d="M0,256 C288,288 576,224 864,256 C1152,288 1344,352 1440,320 L1440,400 L0,400 Z" fill="none" stroke="currentColor" stroke-width="1.5" stroke-dasharray="10 15"></path>
+      <defs>
+        <linearGradient id="wave-grad-1" x1="0%" y1="0%" x2="0%" y2="100%">
+          <stop offset="0%" stop-color="var(--color-secondary)" stop-opacity="0.05" />
+          <stop offset="100%" stop-color="var(--color-primary)" stop-opacity="0.15" />
+        </linearGradient>
+        <linearGradient id="wave-grad-2" x1="0%" y1="0%" x2="100%" y2="100%">
+          <stop offset="0%" stop-color="var(--color-primary)" stop-opacity="0.02" />
+          <stop offset="100%" stop-color="var(--color-secondary)" stop-opacity="0.08" />
+        </linearGradient>
+      </defs>
+    </svg>
+  )}
+
+  {type === 'beams' && (
+    <div class="tech-beam-wrapper">
+      <div class="tech-beam beam-1"></div>
+      <div class="tech-beam beam-2"></div>
+      <div class="tech-beam beam-3"></div>
+      <div class="tech-beam beam-4"></div>
+    </div>
+  )}
+</div>
+
+<style>
+  .tech-pattern-container {
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 1;
+    overflow: hidden;
+    opacity: var(--pattern-opacity);
+    color: var(--pattern-color);
+    mask-image: radial-gradient(circle at center, black 40%, transparent 80%);
+    -webkit-mask-image: radial-gradient(circle at center, black 40%, transparent 80%);
+  }
+
+  .tech-pattern-container.waves {
+    mask-image: linear-gradient(to top, black, transparent);
+    -webkit-mask-image: linear-gradient(to top, black, transparent);
+    height: 300px;
+    top: auto;
+    bottom: 0;
+  }
+
+  .tech-pattern-container.circuit {
+    mask-image: radial-gradient(circle at 70% 30%, black 20%, transparent 80%);
+    -webkit-mask-image: radial-gradient(circle at 70% 30%, black 20%, transparent 80%);
+  }
+
+  /* Animations */
+  .tech-pattern-container.animate.grid svg {
+    animation: moveGrid 60s linear infinite;
+  }
+
+  .tech-pattern-container.animate.cross svg {
+    animation: moveGrid 80s linear infinite;
+  }
+
+  .tech-pattern-container.animate.dots svg {
+    animation: moveDots 40s linear infinite;
+  }
+
+  @keyframes moveGrid {
+    from {
+      background-position: 0 0;
+    }
+    to {
+      background-position: 40px 80px;
+    }
+  }
+
+  @keyframes moveDots {
+    from {
+      background-position: 0 0;
+    }
+    to {
+      background-position: 24px 24px;
+    }
+  }
+
+  /* Wave animation */
+  .tech-pattern-container.animate.waves .wave-1 {
+    animation: waveMotion1 20s ease-in-out infinite alternate;
+  }
+
+  .tech-pattern-container.animate.waves .wave-2 {
+    animation: waveMotion2 25s ease-in-out infinite alternate;
+  }
+
+  .tech-pattern-container.animate.waves .wave-3 {
+    animation: waveMotion3 30s ease-in-out infinite alternate;
+  }
+
+  @keyframes waveMotion1 {
+    0% { d: path("M0,192 C288,224 576,160 864,192 C1152,224 1344,288 1440,256 L1440,400 L0,400 Z"); }
+    100% { d: path("M0,224 C288,160 576,224 864,160 C1152,192 1344,224 1440,192 L1440,400 L0,400 Z"); }
+  }
+
+  @keyframes waveMotion2 {
+    0% { d: path("M0,128 C288,96 576,192 864,160 C1152,128 1344,64 1440,96 L1440,400 L0,400 Z"); }
+    100% { d: path("M0,160 C288,192 576,96 864,128 C1152,160 1344,128 1440,160 L1440,400 L0,400 Z"); }
+  }
+
+  @keyframes waveMotion3 {
+    0% { d: path("M0,256 C288,288 576,224 864,256 C1152,288 1344,352 1440,320 L1440,400 L0,400 Z"); }
+    100% { d: path("M0,224 C288,192 576,288 864,224 C1152,256 1344,288 1440,256 L1440,400 L0,400 Z"); }
+  }
+
+  /* Laser beams effect */
+  .tech-beam-wrapper {
+    position: relative;
+    width: 100%;
+    height: 100%;
+  }
+
+  .tech-beam {
+    position: absolute;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, var(--pattern-color), transparent);
+    width: 150px;
+    opacity: 0.8;
+  }
+
+  .beam-1 {
+    top: 20%;
+    left: -150px;
+    animation: slideBeamRight 8s linear infinite;
+  }
+
+  .beam-2 {
+    top: 50%;
+    right: -150px;
+    animation: slideBeamLeft 12s linear infinite 2s;
+  }
+
+  .beam-3 {
+    top: 75%;
+    left: -150px;
+    animation: slideBeamRight 10s linear infinite 4s;
+  }
+
+  .beam-4 {
+    top: 15%;
+    right: -150px;
+    animation: slideBeamLeft 9s linear infinite 1s;
+  }
+
+  @keyframes slideBeamRight {
+    0% {
+      left: -150px;
+      opacity: 0;
+    }
+    5% {
+      opacity: 0.8;
+    }
+    95% {
+      opacity: 0.8;
+    }
+    100% {
+      left: 100%;
+      opacity: 0;
+    }
+  }
+
+  @keyframes slideBeamLeft {
+    0% {
+      right: -150px;
+      opacity: 0;
+    }
+    5% {
+      opacity: 0.8;
+    }
+    95% {
+      opacity: 0.8;
+    }
+    100% {
+      right: 100%;
+      opacity: 0;
+    }
+  }
+</style>

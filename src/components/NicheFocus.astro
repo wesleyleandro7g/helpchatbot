@@ -1,8 +1,10 @@
 ---
 // NicheFocus Component for Help Chat Bot
+import TechGrid from './TechGrid.astro';
 ---
 
 <section id="clinicas" class="niche-section">
+  <TechGrid type="grid" opacity={0.03} color="var(--color-secondary)" />
   <div class="glow-effect" style="bottom: 5%; right: 10%; width: 450px; height: 450px; opacity: 0.12;"></div>
   
   <div class="container">
@@ -43,7 +45,8 @@
       </div>
 
       <!-- Com Help Chat Bot Card (Glow/Featured) -->
-      <div class="comparison-card border-green glass-card reveal-on-scroll" style="transition-delay: 0.2s;">
+      <div class="comparison-card border-green glass-card reveal-on-scroll tech-corners" style="transition-delay: 0.2s;">
+        <TechGrid type="grid" opacity={0.05} color="var(--color-success)" />
         <div class="card-badge badge-green">Cenário com Help Chat Bot</div>
         <h3>Com o Help Chat Bot</h3>
         <p class="comparison-lead text-gradient">A automação integrada de ponta a ponta que otimiza sua receita:</p>
@@ -71,6 +74,7 @@
 
     <!-- Quick Stats Section -->
     <div class="niche-stats reveal-on-scroll">
+      <TechGrid type="dots" opacity={0.06} color="var(--color-secondary)" />
       <div class="stat-item">
         <span class="stat-number text-gradient-primary">85%</span>
         <span class="stat-label">Menos Faltas em Consultas</span>
@@ -94,6 +98,18 @@
     transition: background-color 0.3s ease, border-color 0.3s ease;
   }
 
+  .section-header {
+    text-align: center;
+    max-width: 700px;
+    margin: 0 auto 60px;
+  }
+
+  .section-header h2 {
+    font-size: clamp(2.2rem, 4.5vw, 3.2rem);
+    margin-bottom: 28px;
+    line-height: 1.2;
+  }
+
   .niche-comparison-grid {
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -105,6 +121,7 @@
     padding: 40px;
     border-radius: var(--radius-xl);
     position: relative;
+    overflow: hidden;
     display: flex;
     flex-direction: column;
     height: 100%;
@@ -211,6 +228,8 @@
 
   /* Niche Stats Section */
   .niche-stats {
+    position: relative;
+    overflow: hidden;
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 30px;
@@ -223,6 +242,8 @@
   }
 
   .stat-item {
+    position: relative;
+    z-index: 1;
     display: flex;
     flex-direction: column;
     gap: 8px;

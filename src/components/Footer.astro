@@ -1,8 +1,10 @@
 ---
 // Footer Component for Help Chat Bot
+import TechGrid from './TechGrid.astro';
 ---
 
 <footer class="main-footer">
+  <TechGrid type="dots" opacity={0.04} color="var(--color-secondary)" />
   <div class="container footer-grid">
     <!-- Brand column -->
     <div class="footer-brand">
@@ -81,6 +83,8 @@
 
 <style>
   .main-footer {
+    position: relative;
+    overflow: hidden;
     background: var(--color-bg-alt);
     border-top: 1px solid var(--color-border);
     padding-top: 80px;
