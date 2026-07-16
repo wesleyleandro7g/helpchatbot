@@ -75,7 +75,7 @@ import TechGrid from './TechGrid.astro';
     <div class="container footer-bottom-flex">
       <p>&copy; {new Date().getFullYear()} Help Chat Bot. Todos os direitos reservados.</p>
       <div class="footer-credits">
-        <span>Desenvolvido com Astro 🚀</span>
+        <span>Desenvolvido por <a href="https://wesleyleandro.com/en" target="_blank" rel="noopener noreferrer" class="credits-link">Wesley Leandro</a> 🚀</span>
       </div>
     </div>
   </div>
@@ -241,6 +241,18 @@ import TechGrid from './TechGrid.astro';
     align-items: center;
     flex-wrap: wrap;
     gap: 16px;
+  }
+
+  .credits-link {
+    color: var(--color-secondary);
+    font-weight: 600;
+    transition: var(--transition-smooth);
+  }
+
+  .credits-link:hover {
+    color: var(--color-secondary);
+    opacity: 0.8;
+    text-decoration: underline;
   }
 
   @media (max-width: 991px) {
