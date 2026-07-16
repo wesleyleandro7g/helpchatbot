@@ -1,6 +1,7 @@
 ---
 // Hero Component for Help Chat Bot
 import TechGrid from './TechGrid.astro';
+import ChatSimulator from './ChatSimulator';
 ---
 
 <section class="hero-section">
@@ -22,7 +23,7 @@ import TechGrid from './TechGrid.astro';
       </h1>
       
       <p class="hero-description">
-        Somos especialistas em automação inteligente e queremos te ajudar a melhorar seu atendimento. Centralize e profissionalize seu WhatsApp e Instagram em um só lugar com estabilidade e total segurança contra banimentos.
+        Somos especialistas em automação inteligente e queremos te ajudar a melhorar seu atendimento. Centralize e profissionalize seu WhatsApp e Instagram in um só lugar com estabilidade e total segurança contra banimentos.
       </p>
 
       <div class="hero-ctas">
@@ -62,87 +63,12 @@ import TechGrid from './TechGrid.astro';
           <line x1="2" y1="100" x2="198" y2="100" stroke="var(--color-secondary)" stroke-width="0.5" stroke-opacity="0.1" />
         </svg>
       </div>
-      <div class="phone-frame">
-        <div class="phone-notch"></div>
-        <div class="phone-header">
-          <div class="phone-header-info">
-            <div class="avatar-clinic">
-              <!-- Using logo directly in the avatar -->
-              <img src="/logo.webp" alt="Help Chat Bot avatar" class="logo-avatar-img" />
-            </div>
-            <div>
-              <div class="clinic-name">Help Chat Bot</div>
-              <div class="clinic-status">
-                <span class="status-indicator"></span>
-                <span>Online (API Oficial)</span>
-              </div>
-            </div>
-          </div>
-          <div class="phone-actions">
-            <span class="phone-action-icon">📞</span>
-            <span class="phone-action-icon">⋮</span>
-          </div>
-        </div>
-        
-        <div class="phone-body" id="chatTimeline">
-          <!-- Chat messages simulated with CSS animations -->
-          <div class="chat-msg msg-user animate-msg-1">
-            <p>Olá, gostaria de confirmar se meu exame está agendado para amanhã.</p>
-            <span class="msg-time">13:45</span>
-          </div>
-          
-          <div class="chat-msg msg-bot animate-msg-2">
-            <div class="typing-indicator">
-              <span></span><span></span><span></span>
-            </div>
-            <div class="msg-content">
-              <p>Olá! Sou o assistente inteligente da <strong>Help Chat Bot</strong>. Vou verificar para você. Qual o seu CPF ou nome completo?</p>
-            </div>
-            <span class="msg-time">13:45</span>
-          </div>
-          
-          <div class="chat-msg msg-user animate-msg-3">
-            <p>Claro, meu nome é Mariana Silva dos Santos.</p>
-            <span class="msg-time">13:46</span>
-          </div>
-          
-          <div class="chat-msg msg-bot animate-msg-4">
-            <div class="msg-content">
-              <p>Localizei Mariana! ✅ Seu exame de <strong>Ultrassonografia</strong> está agendado para amanhã, <strong>17/07 às 09:30h</strong> na Clínica Bem Estar.</p>
-              <p>Você confirma seu comparecimento?</p>
-              <div class="bot-buttons">
-                <span class="bot-btn">Sim, confirmo</span>
-                <span class="bot-btn">Não, preciso remarcar</span>
-              </div>
-            </div>
-            <span class="msg-time">13:46</span>
-          </div>
-          
-          <div class="chat-msg msg-user animate-msg-5">
-            <p>Sim, confirmo!</p>
-            <span class="msg-time">13:46</span>
-          </div>
-
-          <div class="chat-msg msg-bot animate-msg-6">
-            <div class="msg-content">
-              <p>Maravilhoso! Sua presença foi confirmada e sua vaga foi otimizada no sistema. 🚀</p>
-              <p>Obrigada por confirmar!</p>
-            </div>
-            <span class="msg-time">13:47</span>
-          </div>
-        </div>
-        
-        <div class="phone-footer">
-          <span class="footer-emoji">⭐</span>
-          <div class="footer-input">Mensagem</div>
-          <span class="footer-mic">🎙️</span>
-        </div>
-      </div>
+      <ChatSimulator client:load />
     </div>
   </div>
 </section>
 
-<style>
+<style is:global>
   .hero-section {
     padding-top: 160px;
     padding-bottom: 120px;
