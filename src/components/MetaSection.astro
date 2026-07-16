@@ -63,7 +63,8 @@
 <style>
   .meta-section {
     padding: 60px 0;
-    background: #030712;
+    background: var(--color-bg);
+    transition: background-color 0.3s ease;
   }
 
   .meta-card {
@@ -100,8 +101,12 @@
 
   .meta-logo {
     color: var(--color-secondary);
-    filter: drop-shadow(0 0 15px rgba(2, 158, 248, 0.4));
+    filter: drop-shadow(0 0 15px rgba(2, 158, 248, 0.2));
     transition: var(--transition-smooth);
+  }
+
+  html[data-theme="light"] .meta-logo {
+    filter: drop-shadow(0 0 8px rgba(6, 55, 186, 0.15));
   }
 
   .meta-logo:hover {
@@ -146,8 +151,8 @@
 
   .meta-feat-icon {
     font-size: 1.5rem;
-    background: rgba(255, 255, 255, 0.03);
-    border: 1px solid rgba(255, 255, 255, 0.08);
+    background: var(--color-btn-sec-bg);
+    border: 1px solid var(--color-border);
     width: 46px;
     height: 46px;
     border-radius: 12px;
@@ -155,6 +160,7 @@
     align-items: center;
     justify-content: center;
     flex-shrink: 0;
+    transition: background-color 0.3s ease, border-color 0.3s ease;
   }
 
   .meta-feat-item h3 {

@@ -36,9 +36,9 @@
 
       <div class="trust-indicators">
         <div class="avatar-group">
-          <div class="avatar" style="background-color: #6C5DD3;">A</div>
-          <div class="avatar" style="background-color: #029EF8;">L</div>
-          <div class="avatar" style="background-color: #03AD3D;">M</div>
+          <div class="avatar" style="background-color: #6C5DD3; color: #FFFFFF;">A</div>
+          <div class="avatar" style="background-color: #029EF8; color: #FFFFFF;">L</div>
+          <div class="avatar" style="background-color: #03AD3D; color: #FFFFFF;">M</div>
         </div>
         <div class="trust-text">
           <strong>+50 Empresas</strong> já simplificaram o atendimento de saúde e comercial.
@@ -53,7 +53,8 @@
         <div class="phone-header">
           <div class="phone-header-info">
             <div class="avatar-clinic">
-              <img src="/logo.png" alt="Help Chat Bot avatar" />
+              <!-- Using logo directly in the avatar -->
+              <img src="/logo.png" alt="Help Chat Bot avatar" class="logo-avatar-img" />
             </div>
             <div>
               <div class="clinic-name">Help Chat Bot</div>
@@ -131,7 +132,7 @@
   .hero-section {
     padding-top: 160px;
     padding-bottom: 120px;
-    background: radial-gradient(100% 100% at 50% 0%, rgba(6, 55, 186, 0.08) 0%, rgba(3, 7, 18, 0) 100%);
+    background: radial-gradient(100% 100% at 50% 0%, rgba(6, 55, 186, 0.06) 0%, rgba(3, 7, 18, 0) 100%);
     border-bottom: 1px solid var(--color-border);
   }
 
@@ -243,10 +244,10 @@
   }
 
   .trust-text strong {
-    color: #FFFFFF;
+    color: var(--color-heading);
   }
 
-  /* Phone Simulator styling */
+  /* Phone Simulator styling with variables that adapt to light/dark themes */
   .hero-visual {
     display: flex;
     justify-content: center;
@@ -256,17 +257,46 @@
   }
 
   .phone-frame {
+    /* Default dark variables for the phone */
+    --phone-border: #1E293B;
+    --phone-bg: #0F172A;
+    --phone-header: #1E293B;
+    --phone-body: #0B0F19;
+    --phone-msg-bot: #1E293B;
+    --phone-msg-bot-text: #E2E8F0;
+    --phone-msg-time: rgba(255, 255, 255, 0.4);
+    --phone-btn-bg: rgba(2, 158, 248, 0.1);
+    --phone-btn-border: rgba(2, 158, 248, 0.3);
+    --phone-text-color: #FFFFFF;
+
     width: 100%;
     max-width: 380px;
     height: 600px;
-    background: #0F172A;
-    border: 10px solid #1E293B;
+    background: var(--phone-bg);
+    border: 10px solid var(--phone-border);
     border-radius: 40px;
-    box-shadow: 0 30px 60px -15px rgba(0, 0, 0, 0.8), 0 0 50px rgba(6, 55, 186, 0.25);
+    box-shadow: 0 30px 60px -15px rgba(0, 0, 0, 0.8), 0 0 50px rgba(6, 55, 186, 0.2);
     overflow: hidden;
     display: flex;
     flex-direction: column;
     position: relative;
+    transition: all 0.3s ease;
+  }
+
+  /* Light theme modifications for phone */
+  html[data-theme="light"] .phone-frame {
+    --phone-border: #CBD5E1;       /* Slate 300 */
+    --phone-bg: #F8FAFC;           /* Slate 50 */
+    --phone-header: #075E54;       /* WhatsApp Brand Green */
+    --phone-body: #E5DDD5;         /* WhatsApp Light wallpaper */
+    --phone-msg-bot: #FFFFFF;      /* White bubble */
+    --phone-msg-bot-text: #334155; /* Slate 700 */
+    --phone-msg-time: rgba(0, 0, 0, 0.45);
+    --phone-btn-bg: rgba(6, 55, 186, 0.05);
+    --phone-btn-border: rgba(6, 55, 186, 0.2);
+    --phone-text-color: #0F172A;
+    
+    box-shadow: 0 30px 60px -15px rgba(6, 55, 186, 0.1), 0 0 40px rgba(6, 55, 186, 0.1);
   }
 
   .phone-notch {
@@ -276,19 +306,21 @@
     transform: translateX(-50%);
     width: 140px;
     height: 20px;
-    background: #1E293B;
+    background: var(--phone-border);
     border-bottom-left-radius: 18px;
     border-bottom-right-radius: 18px;
     z-index: 20;
+    transition: background-color 0.3s ease;
   }
 
   .phone-header {
-    background: #1E293B;
+    background: var(--phone-header);
     padding: 24px 16px 12px;
     display: flex;
     justify-content: space-between;
     align-items: center;
     border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    transition: background-color 0.3s ease;
   }
 
   .phone-header-info {
@@ -308,7 +340,7 @@
     overflow: hidden;
   }
 
-  .avatar-clinic img {
+  .logo-avatar-img {
     width: 85%;
     height: 85%;
     object-fit: contain;
@@ -325,34 +357,43 @@
     align-items: center;
     gap: 4px;
     font-size: 0.7rem;
-    color: var(--color-success);
+    color: var(--color-secondary);
     font-weight: 500;
+  }
+
+  html[data-theme="light"] .clinic-status {
+    color: #00FF7F; /* Lighter green status on WhatsApp header */
   }
 
   .status-indicator {
     width: 6px;
     height: 6px;
-    background-color: var(--color-success);
+    background-color: var(--color-secondary);
     border-radius: 50%;
     display: inline-block;
+  }
+
+  html[data-theme="light"] .status-indicator {
+    background-color: #00FF7F;
   }
 
   .phone-actions {
     display: flex;
     gap: 12px;
     font-size: 0.9rem;
-    color: var(--color-text-muted);
+    color: rgba(255, 255, 255, 0.8);
   }
 
   .phone-body {
     flex: 1;
-    background: #0B0F19;
+    background: var(--phone-body);
     padding: 16px;
     overflow-y: auto;
     display: flex;
     flex-direction: column;
     gap: 12px;
     position: relative;
+    transition: background-color 0.3s ease;
   }
 
   /* Chat Messages Simulator Logic */
@@ -378,7 +419,7 @@
 
   .msg-time {
     font-size: 0.65rem;
-    color: rgba(255,255,255,0.4);
+    color: var(--phone-msg-time);
     display: block;
     text-align: right;
   }
@@ -391,12 +432,19 @@
     transform: translateX(20px);
   }
 
+  /* Adjust user message in WhatsApp light mode to WhatsApp Green */
+  html[data-theme="light"] .msg-user {
+    background: #DCF8C6; /* Light green WhatsApp bubble */
+    color: #303030;
+  }
+
   .msg-bot {
-    background: #1E293B;
-    color: #E2E8F0;
+    background: var(--phone-msg-bot);
+    color: var(--phone-msg-bot-text);
     align-self: flex-start;
     border-bottom-left-radius: 4px;
     transform: translateX(-20px);
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
   }
 
   .bot-buttons {
@@ -407,8 +455,8 @@
   }
 
   .bot-btn {
-    background: rgba(2, 158, 248, 0.1);
-    border: 1px solid rgba(2, 158, 248, 0.3);
+    background: var(--phone-btn-bg);
+    border: 1px solid var(--phone-btn-border);
     color: var(--color-secondary);
     padding: 6px 12px;
     border-radius: 8px;
@@ -416,25 +464,42 @@
     font-weight: 600;
     font-size: 0.78rem;
     cursor: pointer;
+    transition: background-color 0.3s ease, border-color 0.3s ease;
+  }
+
+  html[data-theme="light"] .bot-btn {
+    color: var(--color-primary);
   }
 
   /* Phone Footer */
   .phone-footer {
-    background: #1E293B;
+    background: var(--phone-header);
     padding: 12px 16px;
     display: flex;
     align-items: center;
     gap: 12px;
     border-top: 1px solid rgba(255, 255, 255, 0.05);
+    transition: background-color 0.3s ease;
   }
 
   .footer-input {
     flex: 1;
-    background: #0F172A;
+    background: var(--phone-bg);
     border-radius: 20px;
     padding: 8px 16px;
     font-size: 0.8rem;
     color: var(--color-text-muted);
+    transition: background-color 0.3s ease;
+  }
+
+  html[data-theme="light"] .footer-input {
+    background: #FFFFFF;
+    color: #475569;
+  }
+
+  html[data-theme="light"] .footer-emoji,
+  html[data-theme="light"] .footer-mic {
+    color: #FFFFFF;
   }
 
   /* Simulation Keyframes Timeline */
@@ -475,7 +540,7 @@
     align-items: center;
     gap: 4px;
     padding: 6px 12px;
-    background: #1E293B;
+    background: var(--phone-msg-bot);
     border-radius: 12px;
     width: fit-content;
     animation: fadeOutTyping 0.3s ease 2.3s forwards;

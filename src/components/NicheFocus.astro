@@ -89,8 +89,9 @@
 
 <style>
   .niche-section {
-    background: #0B1120;
+    background: var(--color-bg-alt);
     border-bottom: 1px solid var(--color-border);
+    transition: background-color 0.3s ease, border-color 0.3s ease;
   }
 
   .niche-comparison-grid {
@@ -107,17 +108,28 @@
     display: flex;
     flex-direction: column;
     height: 100%;
+    transition: background-color 0.3s ease, border-color 0.3s ease;
   }
 
   .border-red {
-    background: rgba(254, 45, 45, 0.01);
-    border: 1px solid rgba(254, 45, 45, 0.15);
+    background: rgba(239, 68, 68, 0.02);
+    border: 1px solid rgba(239, 68, 68, 0.15);
+  }
+
+  html[data-theme="light"] .border-red {
+    background: rgba(239, 68, 68, 0.03);
+    border: 1px solid rgba(239, 68, 68, 0.2);
   }
 
   .border-green {
     background: rgba(3, 173, 61, 0.02);
     border: 1px solid rgba(3, 173, 61, 0.25);
-    box-shadow: 0 25px 50px -12px rgba(3, 173, 61, 0.1);
+    box-shadow: 0 25px 50px -12px var(--color-shadow);
+  }
+
+  html[data-theme="light"] .border-green {
+    background: rgba(3, 173, 61, 0.03);
+    border: 1px solid rgba(3, 173, 61, 0.3);
   }
 
   .card-badge {
@@ -132,15 +144,25 @@
   }
 
   .badge-red {
-    background: rgba(254, 45, 45, 0.1);
+    background: rgba(239, 68, 68, 0.1);
     color: #F87171;
-    border: 1px solid rgba(254, 45, 45, 0.2);
+    border: 1px solid rgba(239, 68, 68, 0.2);
+  }
+
+  html[data-theme="light"] .badge-red {
+    background: rgba(239, 68, 68, 0.08);
+    color: #EF4444;
   }
 
   .badge-green {
     background: rgba(3, 173, 61, 0.15);
     color: #00FF7F;
     border: 1px solid rgba(3, 173, 61, 0.3);
+  }
+
+  html[data-theme="light"] .badge-green {
+    background: rgba(3, 173, 61, 0.1);
+    color: #028e30;
   }
 
   .comparison-card h3 {
@@ -183,7 +205,8 @@
   }
 
   .list-green li span:last-child {
-    color: #FFFFFF;
+    color: var(--color-heading);
+    transition: color 0.3s ease;
   }
 
   /* Niche Stats Section */
@@ -191,11 +214,12 @@
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 30px;
-    background: rgba(255, 255, 255, 0.02);
+    background: var(--color-btn-sec-bg);
     border: 1px solid var(--color-border);
     padding: 40px;
     border-radius: var(--radius-xl);
     text-align: center;
+    transition: background-color 0.3s ease, border-color 0.3s ease;
   }
 
   .stat-item {
@@ -203,6 +227,7 @@
     flex-direction: column;
     gap: 8px;
     border-right: 1px solid var(--color-border);
+    transition: border-color 0.3s ease;
   }
 
   .stat-item:last-child {

@@ -127,8 +127,9 @@
 
 <style>
   .permissions-section {
-    background: #030712;
+    background: var(--color-bg);
     border-bottom: 1px solid var(--color-border);
+    transition: background-color 0.3s ease, border-color 0.3s ease;
   }
 
   .permissions-container {
@@ -175,10 +176,11 @@
   }
 
   .permissions-list li strong {
-    color: #FFFFFF;
+    color: var(--color-heading);
     font-size: 1.05rem;
     display: block;
     margin-bottom: 4px;
+    transition: color 0.3s ease;
   }
 
   .permissions-list li p {
@@ -195,7 +197,8 @@
     padding: 8px 16px;
     border-radius: 12px;
     font-weight: 600;
-    color: #FFFFFF;
+    color: var(--color-heading);
+    transition: color 0.3s ease;
   }
 
   .badge-icon {
@@ -210,17 +213,23 @@
   .dashboard-panel {
     border-radius: var(--radius-xl);
     overflow: hidden;
-    box-shadow: 0 30px 60px -15px rgba(0, 0, 0, 0.7);
-    border: 1px solid rgba(255, 255, 255, 0.08);
+    box-shadow: 0 30px 60px -15px var(--color-shadow);
+    border: 1px solid var(--color-border);
+    background: var(--color-dash-bg);
+    transition: background-color 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
   }
 
   .panel-header {
     background: rgba(255, 255, 255, 0.02);
     padding: 16px 24px;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    border-bottom: 1px solid var(--color-border);
     display: flex;
     align-items: center;
     gap: 16px;
+  }
+
+  html[data-theme="light"] .panel-header {
+    background: rgba(15, 23, 42, 0.02);
   }
 
   .panel-dots {
@@ -250,11 +259,12 @@
 
   .role-selector {
     display: flex;
-    background: rgba(0, 0, 0, 0.2);
+    background: var(--color-btn-sec-bg);
     padding: 4px;
     border-radius: 10px;
     margin-bottom: 24px;
-    border: 1px solid rgba(255, 255, 255, 0.03);
+    border: 1px solid var(--color-border);
+    transition: background-color 0.3s ease, border-color 0.3s ease;
   }
 
   .role-tab {
@@ -286,7 +296,7 @@
     justify-content: space-between;
     align-items: center;
     padding-bottom: 16px;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.03);
+    border-bottom: 1px solid var(--color-border);
   }
 
   .perm-row:last-child {
@@ -304,7 +314,8 @@
   .perm-title {
     font-size: 0.95rem;
     font-weight: 600;
-    color: #FFFFFF;
+    color: var(--color-heading);
+    transition: color 0.3s ease;
   }
 
   .perm-desc {
@@ -333,7 +344,7 @@
     left: 0;
     right: 0;
     bottom: 0;
-    background-color: #334155;
+    background-color: var(--color-dash-switch-bg);
     transition: .4s;
     border-radius: 24px;
   }
@@ -360,12 +371,13 @@
 
   .panel-footer-tip {
     margin-top: 24px;
-    background: rgba(255, 255, 255, 0.02);
-    border: 1px solid rgba(255, 255, 255, 0.05);
+    background: var(--color-btn-sec-bg);
+    border: 1px solid var(--color-border);
     padding: 12px;
     border-radius: 8px;
     font-size: 0.8rem;
     text-align: center;
+    transition: background-color 0.3s ease, border-color 0.3s ease;
   }
 
   .panel-footer-tip strong {
