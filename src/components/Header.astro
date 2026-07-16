@@ -5,8 +5,8 @@
 <header class="main-header">
   <div class="container header-container">
     <a href="#" class="logo-link">
-      <img src="/logo-white.png" alt="Help Chat Bot Logo" class="logo-img logo-dark" />
-      <img src="/logo.png" alt="Help Chat Bot Logo" class="logo-img logo-light" />
+      <img src="/logo-white.webp" alt="Help Chat Bot Logo" class="logo-img logo-dark" />
+      <img src="/logo.webp" alt="Help Chat Bot Logo" class="logo-img logo-light" />
     </a>
     
     <div class="header-right">
@@ -33,15 +33,16 @@
         <a href="#beneficios" class="nav-link">Benefícios</a>
         <a href="#permissoes" class="nav-link">Permissões</a>
         <a href="#clinicas" class="nav-link">Clínicas</a>
-        <a href="https://wa.me/5538998591036?text=Olá,%20gostaria%20de%20conhecer%20as%20soluções%20do%20Help%20Chat%20Bot!" target="_blank" class="nav-btn-mobile btn-primary">Fale Conosco</a>
+        <a href="https://zap.speakr.com.br/" target="_blank" rel="noopener noreferrer" class="nav-btn-mobile btn-primary">Acessar Plataforma</a>
+        <a href="https://helpdesk-rouge-xi.vercel.app/" target="_blank" rel="noopener noreferrer" class="nav-btn-mobile btn-secondary-outline">Disparo via Planilha</a>
       </nav>
 
       <div class="header-cta">
-        <a href="https://wa.me/5538998591036?text=Olá,%20gostaria%20de%20conhecer%20as%20soluções%20do%20Help%20Chat%20Bot!" target="_blank" class="btn-whatsapp">
-          <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="currentColor" viewBox="0 0 16 16">
-            <path d="M13.601 2.326A7.85 7.85 0 0 0 7.994 0C3.627 0 .068 3.558.064 7.926c0 1.399.366 2.76 1.057 3.965L0 16l4.204-1.102a7.9 7.9 0 0 0 3.79.948h.008c4.368 0 7.927-3.559 7.931-7.928a7.9 7.9 0 0 0-2.332-5.593l-.004-.005zM7.994 14.52a6.57 6.57 0 0 1-3.356-.92l-.24-.144-2.494.654.666-2.433-.156-.251a6.56 6.56 0 0 1-1.007-3.505c0-3.626 2.957-6.584 6.591-6.584a6.56 6.56 0 0 1 4.66 1.931 6.56 6.56 0 0 1 1.928 4.66c-.004 3.639-2.961 6.592-6.592 6.592m3.69-4.29c-.2-.1-1.171-.578-1.349-.643-.178-.065-.307-.1-.439.1-.132.197-.508.643-.623.774-.115.13-.23.148-.43.048a5.9 5.9 0 0 1-1.602-1.012 6.2 6.2 0 0 1-1.109-1.397c-.12-.207-.013-.32.088-.42.09-.09.2-.234.3-.35.1-.117.133-.197.2-.33.067-.132.034-.249-.017-.35-.051-.1-.439-1.058-.6-.145-.158-.387-.343-.377-.49-.377-.113.001-.214.07-.306.182-.132.16-.395.428-.395.948 0 1.02.744 2.01 1.093 2.471.348.462 1.93 2.95 4.67 4.137.653.28 1.162.447 1.558.573.656.208 1.252.179 1.725.108.527-.078 1.17-.478 1.334-.94.164-.462.164-.858.115-.94-.049-.082-.18-.13-.38-.23"/>
-          </svg>
-          <span>Contatar especialista</span>
+        <a href="https://helpdesk-rouge-xi.vercel.app/" target="_blank" rel="noopener noreferrer" class="btn-secondary-outline">
+          Disparo via Planilha
+        </a>
+        <a href="https://zap.speakr.com.br/" target="_blank" rel="noopener noreferrer" class="btn-primary">
+          Acessar Plataforma
         </a>
       </div>
     </div>
@@ -130,7 +131,7 @@
   .nav-menu {
     display: flex;
     align-items: center;
-    gap: 32px;
+    gap: 20px;
   }
 
   .nav-link {
@@ -140,6 +141,14 @@
     transition: var(--transition-smooth);
     position: relative;
     padding: 8px 0;
+  }
+
+  .highlight-link {
+    color: var(--color-secondary);
+  }
+
+  .highlight-link:hover {
+    color: var(--color-heading);
   }
 
   .nav-link::after {
@@ -162,11 +171,47 @@
   }
 
   .nav-btn-mobile {
-    display: none;
+    display: none !important;
   }
 
-  .header-cta .btn-whatsapp {
+  .btn-secondary-outline {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    font-size: 0.95rem;
+    font-weight: 600;
+    padding: 14px 28px;
+    border-radius: var(--radius-md);
+    background: transparent;
+    color: var(--color-text);
+    border: 2px solid var(--color-border);
+    transition: var(--transition-smooth);
+    cursor: pointer;
+    text-decoration: none;
+  }
+
+  .btn-secondary-outline:hover {
+    border-color: var(--color-secondary);
+    color: var(--color-secondary);
+    transform: translateY(-2px);
+  }
+
+  .header-cta {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+
+  .header-cta .btn-primary {
     padding: 10px 20px;
+    font-size: 0.9rem;
+    border-radius: var(--radius-md);
+    text-decoration: none;
+  }
+
+  .header-cta .btn-secondary-outline {
+    padding: 8px 18px;
     font-size: 0.9rem;
     border-radius: var(--radius-md);
   }
@@ -256,7 +301,7 @@
     }
 
     .nav-btn-mobile {
-      display: inline-flex;
+      display: inline-flex !important;
       width: 100%;
       margin-top: 16px;
     }
