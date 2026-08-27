@@ -1,0 +1,210 @@
+---
+import CalculatorLayout from '../layouts/CalculatorLayout.astro';
+import MessageCostCalculator from '../components/MessageCostCalculator';
+import roboImg from '../assets/robo.png';
+import '../styles/calculadora.css';
+
+const WHATSAPP_HEADER =
+	'https://wa.me/5538998591036?text=' +
+	encodeURIComponent('Olá! Gostaria de saber mais sobre as soluções do Help Chat Bot.');
+---
+
+<CalculatorLayout>
+	<div class="calc-atmosphere" aria-hidden="true">
+		<div class="glow-orb glow-orb--a"></div>
+		<div class="glow-orb glow-orb--b"></div>
+		<div class="calc-grain"></div>
+	</div>
+
+	<header class="header">
+		<div class="container">
+			<div class="nav-brand">
+				<a href="/">
+					<img src="/logo-white.webp" alt="Help Chat Bot" />
+				</a>
+			</div>
+			<div class="nav-actions">
+				<button class="theme-toggle-btn" id="themeToggleBtn" type="button" aria-label="Alternar tema">
+					<svg class="sun-icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
+						<circle cx="12" cy="12" r="4"></circle>
+						<path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"></path>
+					</svg>
+					<svg class="moon-icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
+						<path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"></path>
+					</svg>
+				</button>
+				<a href={WHATSAPP_HEADER} class="btn-primary" target="_blank" rel="noopener noreferrer">
+					Quero saber mais
+				</a>
+			</div>
+		</div>
+	</header>
+
+	<section class="hero-section">
+		<div class="container">
+			<div class="hero-content">
+				<div class="hero-text">
+					<p class="hero-subtitle">Calculadora de custos WhatsApp</p>
+					<h1 class="hero-title">Simule o custo das suas mensagens</h1>
+					<p class="hero-description">
+						Templates você já paga. Mensagens passam a ser cobradas em outubro. Simule os dois.
+					</p>
+					<div class="hero-badge" id="change-badge">
+						<span class="hero-badge-dot"></span>
+						<span id="change-badge-text">Mensagens cobradas em 1º de outubro de 2026</span>
+					</div>
+				</div>
+				<div class="hero-image">
+					<img
+						src={roboImg.src}
+						alt="Robô do Help Chat Bot, mascote da calculadora de custos WhatsApp"
+						class="hero-img"
+						width={roboImg.width}
+						height={roboImg.height}
+					/>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<main class="main-content">
+		<div class="container">
+			<div class="calculator-layout">
+				<div class="info-section" id="info-section">
+					<h2 class="main-title">Calculando com o Help Chat Bot</h2>
+
+					<p class="description">
+						A cobrança varia conforme a categoria da mensagem e o país do cliente.
+					</p>
+
+					<div class="model-box model-box--old">
+						<span class="model-tag">Aba Templates</span>
+						<h3>Isso você já paga</h3>
+						<p>
+							Desde julho de 2025 a Meta cobra por template entregue, não mais pela janela de 24
+							horas. Essas tarifas não mudam em outubro.
+						</p>
+					</div>
+
+					<div class="model-box model-box--new">
+						<span class="model-tag">Aba Mensagens</span>
+						<h3>Isso é o que muda</h3>
+						<p>
+							Responder dentro da janela de 24 horas é gratuito hoje. A partir de 1º de outubro
+							de 2026, cada resposta custa a tarifa de utilidade do país.
+						</p>
+					</div>
+
+					<div class="info-alert">
+						<div class="alert-icon">⚠️</div>
+						<div class="alert-content">
+							<p>
+								Os preços são definidos pela Meta, mudam com frequência e variam por país. Os
+								valores aqui são referência para o Brasil.
+								<a
+									href="https://developers.facebook.com/docs/whatsapp/pricing/"
+									target="_blank"
+									rel="noopener noreferrer"
+									class="alert-link">Ver a tabela oficial</a
+								>
+							</p>
+						</div>
+					</div>
+				</div>
+
+				<div class="calculator-section">
+					<MessageCostCalculator client:load />
+				</div>
+			</div>
+		</div>
+	</main>
+</CalculatorLayout>
+
+<script>
+	const CHANGE_DATE = new Date(2026, 9, 1);
+
+	function renderChangeBadge() {
+		const el = document.getElementById('change-badge-text');
+		if (!el) return;
+
+		const meses = [
+			'janeiro',
+			'fevereiro',
+			'março',
+			'abril',
+			'maio',
+			'junho',
+			'julho',
+			'agosto',
+			'setembro',
+			'outubro',
+			'novembro',
+			'dezembro',
+		];
+		const dataTexto = `1º de ${meses[CHANGE_DATE.getMonth()]} de ${CHANGE_DATE.getFullYear()}`;
+		const hoje = new Date();
+		hoje.setHours(0, 0, 0, 0);
+		const dias = Math.ceil((CHANGE_DATE.getTime() - hoje.getTime()) / 86400000);
+
+		if (dias > 1) {
+			el.textContent = `Mensagens cobradas em ${dataTexto} · faltam ${dias} dias`;
+		} else if (dias === 1) {
+			el.textContent = `Mensagens cobradas em ${dataTexto} · é amanhã`;
+		} else if (dias === 0) {
+			el.textContent = 'As mensagens passam a ser cobradas hoje';
+		} else {
+			el.textContent = `Mensagens cobradas desde ${dataTexto}`;
+		}
+	}
+
+	function animateOnScroll() {
+		const elements = document.querySelectorAll('.calculator-section, .info-section');
+
+		const reveal = (element: Element) => {
+			const el = element as HTMLElement;
+			el.style.opacity = '1';
+			el.style.transform = 'translateY(0)';
+		};
+
+		const observer = new IntersectionObserver(
+			(entries) => {
+				entries.forEach((entry) => {
+					if (entry.isIntersecting) reveal(entry.target);
+				});
+			},
+			{ threshold: 0.1 },
+		);
+
+		elements.forEach((element) => {
+			const el = element as HTMLElement;
+			el.style.opacity = '0';
+			el.style.transform = 'translateY(30px)';
+			el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+			observer.observe(element);
+		});
+
+		setTimeout(() => elements.forEach(reveal), 2000);
+	}
+
+	renderChangeBadge();
+	animateOnScroll();
+	document.body.classList.add('loaded');
+
+	const themeToggleBtn = document.getElementById('themeToggleBtn');
+	const themeColorMeta = document.getElementById('themeColorMeta');
+
+	const syncThemeColor = () => {
+		const isDark = document.documentElement.getAttribute('data-theme') === 'dark';
+		themeColorMeta?.setAttribute('content', isDark ? '#030712' : '#1e40af');
+	};
+
+	syncThemeColor();
+	themeToggleBtn?.addEventListener('click', () => {
+		const htmlEl = document.documentElement;
+		const currentTheme = htmlEl.getAttribute('data-theme');
+		const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+		htmlEl.setAttribute('data-theme', newTheme);
+		localStorage.setItem('theme', newTheme);
+		syncThemeColor();
+	});
+</script>
